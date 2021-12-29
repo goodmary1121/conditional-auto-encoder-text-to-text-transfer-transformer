@@ -174,7 +174,8 @@ if task_name in FLAGS.mixture_or_task:
                                                    "bert-base-uncased")
         load_config_acc_fn = functools.partial(BertConfig.from_pretrained,
                                                num_labels=1)
-
+        
+        print(load_finetuned_transformer)
         metric_fns_task.append(setup_acc_parametric_metric(model_architecture="bert",
                                                            task=task_name,
                                                            ext="pt",
