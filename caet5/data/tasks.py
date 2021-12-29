@@ -183,8 +183,8 @@ if task_name in FLAGS.mixture_or_task:
                                                            load_tokenizer_fn=AutoTokenizer.from_pretrained,
                                                            load_config_fn=load_config_acc_fn,
                                                            load_pretrained_fn=load_pretrained_acc_fn,
-                                                           batch_size=32))
-                                                           #map_location=torch.device('cpu')))
+                                                           batch_size=32,
+                                                           map_location=torch.device('cpu')))
 
     if "PPL" in FLAGS.metrics:
         metric_fns_task.append(setup_ppl_parametric_metric(model_filename="gpt2_ppl_yelp.pt",
