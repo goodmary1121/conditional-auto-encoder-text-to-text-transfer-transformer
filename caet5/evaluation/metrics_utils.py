@@ -85,6 +85,8 @@ def load_finetuned_transformer(evaluator_name, finetuned_model_local_path, pretr
     config = load_config_fn(pretrained_model_name_or_path)
     pretrained_model = load_pretrained_fn(config=config)
     try:
+        print(pretrained_model)
+        print(finetuned_model_local_path)
         pretrained_model.load_state_dict(torch.load(finetuned_model_local_path, map_location=map_location))
         # pretrained_model becomes finetuned_model
         # pretrained_model = xm.send_cpu_data_to_device(pretrained_model, device)
