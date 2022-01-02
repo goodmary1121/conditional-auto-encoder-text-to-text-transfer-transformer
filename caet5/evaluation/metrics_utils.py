@@ -92,8 +92,8 @@ def load_finetuned_transformer(evaluator_name, finetuned_model_local_path, pretr
     try:
         pretrained_model.load_state_dict(torch.load(finetuned_model_local_path, map_location="cuda"))
         # pretrained_model becomes finetuned_model
-        pretrained_model = xm.send_cpu_data_to_device(pretrained_model, device)
-        # pretrained_model.to(device)
+        # pretrained_model = xm.send_cpu_data_to_device(pretrained_model, device)
+        pretrained_model.to(device)
     except:
         raise RuntimeError('Error(s) in loading state_dict for %s.' % evaluator_name)
 
