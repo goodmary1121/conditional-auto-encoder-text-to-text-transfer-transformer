@@ -6,6 +6,7 @@ import tensorflow as tf
 import torch
 from apiclient.http import MediaIoBaseDownload
 from google.cloud import storage
+import torch_xla
 import torch_xla.core.xla_model as xm
 
 def download_from_bucket_to_local(gcs_service, bucket, gcs_path, local_path):
