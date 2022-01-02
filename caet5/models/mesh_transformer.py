@@ -7,6 +7,7 @@ import tensorflow_datasets as tfds
 
 from caet5.data.dataset import process_attribute
 import mesh_tensorflow.transformer.dataset as transformer_dataset
+from mesh_tensorflow.transformer import utils as mtf_utils
 
 from mesh_tensorflow_caet5.dataset import pack_or_pad_ll
 from caet5.data.utils import get_mixture_or_task_ll
