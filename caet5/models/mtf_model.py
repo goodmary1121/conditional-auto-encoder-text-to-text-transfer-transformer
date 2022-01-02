@@ -4,6 +4,7 @@ import t5
 from t5.models.mtf_model import MtfModel
 from t5.models.mtf_model import _get_latest_checkpoint_from_dir, _operative_config_path
 from mesh_tensorflow.transformer import utils
+from mesh_tensorflow.transformer import utils as mtf_utils
 
 from mesh_tensorflow_caet5.utils import eval_model_ll, infer_model_ll, train_model_ll
 from caet5.data.utils import get_mixture_or_task_ll
