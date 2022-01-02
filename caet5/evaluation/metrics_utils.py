@@ -1,7 +1,7 @@
 import errno
 import functools
 import os
-import copy
+#import copy
 
 import tensorflow as tf
 import torch
@@ -91,7 +91,8 @@ def load_finetuned_transformer(evaluator_name, finetuned_model_local_path, pretr
     print(finetuned_model_local_path)
     
     try:
-        pretrained_model.load_state_dict(copy.deepcopy(torch.load(finetuned_model_local_path, map_location=map_location)))
+        # pretrained_model.load_state_dict(copy.deepcopy(torch.load(finetuned_model_local_path, map_location=map_location)))
+        pretrained_model.load_state_dict(torch.load(finetuned_model_local_path, map_location=map_location))
         # pretrained_model becomes finetuned_model
         pretrained_model = xm.send_cpu_data_to_device(pretrained_model, device)
         # pretrained_model.to(device)
