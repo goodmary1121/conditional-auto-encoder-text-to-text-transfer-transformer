@@ -310,7 +310,7 @@ for i, tsv_exists in enumerate(tsvs_exist):
     split_raw = splits_raw[i]
     if not tsv_exists:
         tf.compat.v1.logging.info("Generating TSV for the %s split." % split)
-        ext = ["informal", "formal"]
+        ext = ["0", "1"]
         dataset_raw_dir = os.path.join(FLAGS.base_dir, FLAGS.data_raw_dir_name)
         in_fnames = [(1, os.path.join(dataset_raw_dir, "%s.%s" % (split_raw, ext[1]))),
                      (0, os.path.join(dataset_raw_dir, "%s.%s" % (split_raw, ext[0])))]
