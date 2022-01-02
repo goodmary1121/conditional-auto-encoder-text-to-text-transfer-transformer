@@ -58,7 +58,7 @@ def tpu_estimator_model_fn_ll(model_type,
                               cycle_consistency_loss=False,
                               lambda_ae=1.0,
                               lambda_cycle=1.0,
-                              score_in_predict_mode):
+                              score_in_predict_mode=None):
     """Create a TPUEstimator model function.
     Args:
       model_type: a string. One of "bitransformer", "lm", "aligned", or
