@@ -210,10 +210,12 @@ def bleu(targets, predictions, attributes_origin=None):
 
 
 def sentence_similarity(targets, predictions, sentence_similarity_model, **unused_kwargs):
-  with tf.Session() as session:
-    session.run([tf.global_variables_initializer(), tf.tables_initializer()])
-    targets_embeddings = session.run(sentence_similarity_model(targets))
-    predictions_embeddings = session.run(sentence_similarity_model(predictions))
+  #with tf.Session() as session:
+  session = tf.Session()
+  session.run([tf.global_variables_initializer(), tf.tables_initializer()])
+  targets_embeddings = session.run(sentence_similarity_model(targets))
+  predictions_embeddings = session.run(sentence_similarity_model(predictions))
   sentence_similarity_all = np.einsum('ij,ij->i', targets_embeddings, predictions_embeddings)
   sentence_similarity_avg = sentence_similarity_all.mean()
+  session.close()
   return {"sentence_similarity": sentence_similarity_avg}
