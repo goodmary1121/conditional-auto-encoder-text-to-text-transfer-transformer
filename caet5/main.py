@@ -235,11 +235,11 @@ def main(_):
         utils.tpu_estimator_model_fn = tpu_estimator_model_fn_ll
 
         model_parallelism, train_batch_size, keep_checkpoint_max = {
-            "small": (1, 256, 16),
-            "base": (2, 128, 8),
-            "large": (8, 64, 4),
-            "3B": (8, 16, 1),
-            "11B": (8, 16, 1)}[FLAGS.model_size]
+            "small": (1, 128, 16), #(1, 256, 16),
+            "base": (1, 64, 16), #(2, 128, 8),
+            "large": (1, 32, 16), #(8, 64, 4),
+            "3B": (1, 8, 16), #(8, 16, 1),
+            "11B": (8, 8, 1)}[FLAGS.model_size] #(8, 16, 1)
 
         model = MtfModel_ll(
             tpu_job_name=FLAGS.tpu_job_name,
